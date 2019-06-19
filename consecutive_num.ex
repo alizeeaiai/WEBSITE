@@ -8,7 +8,7 @@ defmodule Consecutive do
     sum = a * 10000 + b * 1000 + c * 100 + d * 10 + e
     consecutive([b,c,d,e | tail],sum)
   end
-  def consecutive([_ | tail,max]) do
+  def consecutive([_ | tail],max) do
     consecutive(tail,max)
   end
   def consecutive([],sum) do

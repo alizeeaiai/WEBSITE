@@ -22,17 +22,17 @@ rate = [NC: 0.075, TX: 0.08]
 # Tax.entree(orders,rate)
 
 defmodule Tax do
-  def a(orders,rate) do
-    IO.inspect Enum.map orders,&b(&1,rate)
+  def a(orders, rate) do
+    IO.inspect(Enum.map(orders, &b(&1, rate)))
   end
 
-  def b(order = [id: _,ship_to: s,net_amount: net],rate) do
-    tax_rate = Keyword.get(rate,s,0)
+  def b(order = [id: _, ship_to: s, net_amount: net], rate) do
+    tax_rate = Keyword.get(rate, s, 0)
     total_amount = tax_rate * net + net
-    Keyword.put(order,:total,total_amount)
+    Keyword.put(order, :total, total_amount)
   end
 end
 
-Tax.a(orders,rate)
+Tax.a(orders, rate)
 
 #
